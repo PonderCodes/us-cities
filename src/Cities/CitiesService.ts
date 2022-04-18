@@ -49,8 +49,12 @@ export class CitiesService {
             const dist = query.proximity!.distance;
             const myCity = cityMap[query.proximity.zip];
             results = cities
-                .filter( city => haversine(myCity, city) <= dist)
-                .filter( city => city.zip !== myCity.zip);
+                .filter( city => {
+                    city.distance = haversine(myCity, city);
+                    return city.distance <= dist;
+                })
+                .filter( city => city.zip !== myCity.zip)
+                .sort((a, b) => parseInt(a.zip) - parseInt(b.zip));
             return results;
         }
 
