@@ -1,9 +1,10 @@
 {
   "name": "us-cities",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "server.js",
   "scripts": {
+    "build": "npm install; tsc",
     "start": "nodemon dist/server.js"
   },
   "author": "Ponder",
