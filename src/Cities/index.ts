@@ -15,17 +15,21 @@ CitiesRouter.get("/city/:zip?proximity=:proximity", (req, res, _next) => {
 */
 
 CitiesRouter.get("/city/:zip", async (req, res, _next) => {
-    const zip = req.params.zip;
-    const proximity = req.query['proximity'];
+  const zip = req.params.zip;
+  const proximity = req.query['proximity'];
 
-    if (proximity) {
-        const distance = parseFloat(`${proximity!}`);
-        const cities = await controller.getClosestCities(zip, distance);
-        res.json(cities);
+  if (proximity) {
+    const distance = parseFloat(`${proximity!}`);
+    const cities = await controller.getClosestCities(zip, distance);
+    res.json(cities);
+  } else {
+    const city = await controller.getCity(zip);
+    if (!city) {
+      res.status(404);
     } else {
-        const city = await controller.getCity(zip);
-        res.json(city);
+      res.json(city);
     }
+  }
 });
 
 export { CitiesRouter };
