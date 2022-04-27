@@ -20,7 +20,7 @@ const cityList: City[] = (() => {
 const cityMap: CityLookup = (() => {
     let lookup: CityLookup = {};
     cityList.forEach( (city: City) => {
-        let zip: string = `${city.zip_code}`.padStart(5, '0');
+        let zip: string = `${city.zip}`.padStart(5, '0');
         city.zip = zip;
         lookup[zip] = city
     });
