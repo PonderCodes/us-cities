@@ -26,6 +26,7 @@ CitiesRouter.get("/city/:zip", async (req, res, _next) => {
     const city = await controller.getCity(zip);
     if (!city) {
       res.status(404);
+      res.body('');
     } else {
       res.json(city);
     }
