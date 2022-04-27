@@ -5,7 +5,7 @@ const controller = new CitiesController();
 const CitiesRouter = express.Router();
 
 CitiesRouter.get("/city/:zip", async (req, res, _next) => {
-  const zip = req.params.zip;
+  const zip = `${req.params.zip}`;
   const proximity = req.query['proximity'];
 
   if (proximity) {
