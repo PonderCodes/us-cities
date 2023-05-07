@@ -2,7 +2,7 @@ import { CitiesController } from "./CitiesController";
 import express from "express";
 
 const controller = new CitiesController();
-const CitiesRouter = express.Router();
+export const CitiesRouter = express.Router();
 
 CitiesRouter.get("/city/:zip", async (req, res, _next) => {
   const zip = `${req.params.zip}`;
@@ -22,5 +22,3 @@ CitiesRouter.get("/city/:zip", async (req, res, _next) => {
     }
   }
 });
-
-export { CitiesRouter };

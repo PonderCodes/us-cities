@@ -59,7 +59,7 @@ export class CitiesService {
         }
 
         if (query.name) {
-            results = cities.filter( city => city.name.startsWith(query.name!));
+            results = cities.filter( city => city.name.toUpperCase().startsWith(query.name!.toUpperCase()));
             return results;
         }
 
