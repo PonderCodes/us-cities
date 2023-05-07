@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "npm install; tsc",
-    "start": "nodemon dist/server.js"
+    "build": "yarn install; tsc",
+    "start": "yarn build; nodemon dist/server.js"
   },
   "author": "Ponder",
   "license": "ISC",
